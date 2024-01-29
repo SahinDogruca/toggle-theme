@@ -1,0 +1,135 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container {
+	overflow: hidden;
+	position: relative;
+	width: 940px;
+	height: 580px;
+	border-radius: 16px;
+	border: 2px solid #101010;
+}
+
+.appbar {
+	padding: 22px 16px;
+	border-bottom: 2px solid #101010;
+}
+
+i {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	border: 1px solid #101010;
+}
+
+i:nth-child(1) {
+	background-color: red;
+}
+
+i:nth-child(2) {
+	background-color: yellow;
+}
+
+i:nth-child(3) {
+	background-color: green;
+}
+
+.content {
+	padding: 40px 30px;
+}
+
+.content h1 {
+	font-size: 40px;
+	font-weight: 600;
+}
+
+.content p {
+	line-height: 1.5;
+	font-size: 21px;
+	color: black;
+	font-weight: 500;
+}
+
+.check {
+	display: inline-block;
+	position: relative;
+	top: -8px;
+	width: 60px;
+	height: 30px;
+	float: right;
+	appearance: none;
+	outline: none;
+	border: 1px solid black;
+	border-radius: 15px;
+	background-color: white !important;
+}
+
+.check::before {
+	content: "";
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	width: 18px;
+	height: 18px;
+	border: 1px solid black;
+	border-radius: 50%;
+	transition: all 0.2s ease-in-out;
+}
+
+.check:checked::before {
+	transform: translateX(30px);
+	background-color: black;
+}
+
+.background {
+	position: absolute;
+	top: -15px;
+	right: -7px;
+	width: 105px;
+	height: 105px;
+	border-radius: 50%;
+	opacity: 0;
+	background-color: black;
+	z-index: -1;
+}
+
+.start {
+	animation: none !important;
+}
+
+.container .play-animation {
+	animation: background-animation 0.3s linear forwards;
+}
+
+.background:not(.play-animation) {
+	animation: background-animation-reverse 0.3s linear forwards;
+}
+
+@keyframes background-animation {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+		transform: scale(20);
+	}
+}
+
+@keyframes background-animation-reverse {
+	from {
+		opacity: 1;
+		transform: scale(20);
+	}
+	to {
+		opacity: 0;
+	}
+}
